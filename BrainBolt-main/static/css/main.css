@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: white;
+  background: linear-gradient(to bottom, #0a192f, #4a148c);
+  overflow-x: hidden;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 4rem;
+  color: #e1bee7;
+  padding-top: 6rem;
+}
+
+.results {
+  padding: 6rem 2rem;
+  background: linear-gradient(to bottom, rgba(74, 20, 140, 0.3), rgba(10, 25, 47, 0.3));
+}
+
+.team {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+  align-items: center;
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  color: #b3e5fc;
+}

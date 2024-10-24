@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainBolt Session</title>
+    <link rel="stylesheet" href="/static/css/session.css">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h1>BrainBolt Session</h1>
+        <div class="progress-container">
+            <div class="progress-bar" id="progress"></div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="chat-section">
+            <div class="messages" id="messageArea">
+                <!-- Messages will be dynamically added here -->
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+            <div class="input-group">
+                <input type="text" id="userInput" placeholder="Share your ideas..." />
+                <button onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+
+        <div class="workspace">
+            <h2>Workspace</h2>
+            <textarea id="workspaceNotes" placeholder="Use this space to take notes and organize your ideas..."></textarea>
+            <button onclick="saveNotes()">Save Notes</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    let sessionProgress = 0;
+    const messageArea = document.getElementById('messageArea');
+    const userInput = document.getElementById('userInput');
+    const typingIndicator = document.getElementById('typingIndicator');
+    const progressBar = document.getElementById('progress');
+
+    function showTypingIndicator() {
+        typingIndicator.classList.add('active');
+    }
+
+    function hideTypingIndicator() {
+        typingIndicator.classList.remove('active');
+    }
+
+    function updateProgress() {
+        sessionProgress = Math.min(100, sessionProgress + 20);
+        progressBar.style.width = sessionProgress + '%';
+    }
+
+    function addMessage(content, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${isUser ? 'user-message' : 'assistant-message'}`;
+        messageDiv.textContent = content;
+        messageArea.appendChild(messageDiv);
+        messageArea.scrollTop = messageArea.scrollHeight;
+        if (!isUser) {
+            updateProgress();
+        }
+    }
+
+    async function initializeSession() {
+        try {
+            const response = await fetch('/initialize_session', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    topic: '{{ topic }}',
+                    members: '{{ members }}',
+                    goal: '{{ goal }}'
+                })
+            });
+            const data = await response.json();
+
+            showTypingIndicator();
+            setTimeout(() => {
+                hideTypingIndicator();
+                addMessage(data.response);
+            }, 1500);
+        } catch (error) {
+            console.error('Error:', error);
+            addMessage('Welcome! Let\'s begin our brainstorming session.');
+        }
+    }
+
+    async function sendMessage() {
+        const content = userInput.value.trim();
+        if (!content) return;
+
+        addMessage(content, true);
+        userInput.value = '';
+
+        showTypingIndicator();
+        try {
+            const response = await fetch('/message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: content })
+            });
+            const data = await response.json();
+
+            setTimeout(() => {
+                hideTypingIndicator();
+                addMessage(data.response);
+            }, 1500);
+        } catch (error) {
+            console.error('Error:', error);
+            setTimeout(() => {
+                hideTypingIndicator();
+                addMessage('Sorry, there was an error. Please try again.');
+            }, 1500);
+        }
+    }
+
+    async function saveNotes() {
+        const notes = document.getElementById('workspaceNotes').value;
+        try {
+            await fetch('/save_notes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ notes: notes })
+            });
+            alert('Notes saved successfully!');
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Error saving notes. Please try again.');
+        }
+    }
+
+    userInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    // Initialize the session when the page loads
+    window.onload = initializeSession;
+</script>
+</body>
+</html>

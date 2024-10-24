@@ -1,0 +1,36 @@
+.team {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 4rem;
+  align-items: center;
+}
+
+.team-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #e1bee7;
+}
+
+.team-image {
+  position: relative;
+}
+
+.team-image img {
+  width: 100%;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+}
+
+.team-image:hover img {
+  transform: scale(1.02);
+}
+
+.footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  color: #b3e5fc;
+}

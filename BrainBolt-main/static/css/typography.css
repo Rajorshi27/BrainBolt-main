@@ -1,0 +1,23 @@
+.team-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #e1bee7;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .stat h3 {
+    font-size: 2.5rem;
+  }
+}

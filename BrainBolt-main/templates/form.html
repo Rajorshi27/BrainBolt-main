@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brainstorm | BrainBolt</title>
+    <link rel="stylesheet" href="/static/css/form.css">
+</head>
+<body>
+<video id="bg-video" autoplay muted loop playsinline>
+    <source src="/static/images/5554724-hd_1080_1920_30fps.mp4" type="video/mp4">
+</video>
+<div class="overlay"></div>
+
+<div class="header">
+    <h1><a href="/">BrainBolt</a></h1>
+</div>
+
+<div class="form_container opacity-0 fade-in delay-400">
+    <h1>Start Your Brainstorming Session</h1>
+    <form action="/generate" method="POST" enctype="multipart/form-data" class="opacity-0 fade-in delay-800">
+        <div>
+            <label for="topic">What is the topic of your brainstorming session?</label>
+            <input type="text" id="topic" name="topic" required placeholder="Enter your topic">
+        </div>
+
+        <div>
+            <label for="members">How many members are participating?</label>
+            <input type="number" id="members" name="members" required min="1" placeholder="Enter number of participants">
+        </div>
+
+        <div>
+            <label for="goal">What are your main goals for this session?</label>
+            <input type="text" id="goal" name="goal" required placeholder="Enter your goals">
+        </div>
+
+        <div>
+            <label for="fileUpload">Upload relevant files (optional):</label>
+            <input type="file" id="fileUpload" name="fileUpload" multiple>
+        </div>
+
+        <button type="submit">Generate Ideas</button>
+    </form>
+</div>
+</body>
+</html>
