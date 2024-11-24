@@ -113,6 +113,131 @@ def initialize_session():
         3. Outline just the FIRST step they should take
         4. Ask them to complete just that first step
         
+        For context, here are 15 popular brainstorming techniques.
+        
+        Brainwriting
+        Pros: Encourages equal participation, Reduces influence of dominant voices
+        Cons: Lacks real-time interaction, Some ideas may need clarification later
+        Steps:
+        - Distribute paper or use a digital tool
+        - Set a time limit for individuals to write ideas
+        - Collect and review all contributions
+        - Discuss and refine the ideas as a group
+        
+        Mind Mapping
+        Pros: Visualizes connections, Great for organizing complex thoughts
+        Cons: Can become cluttered, Not ideal for highly detailed topics
+        Steps:
+        - Place the central idea in the middle of a board or digital canvas
+        - Branch out with related concepts and sub-concepts
+        - Use colors or icons to differentiate branches
+        - Review for patterns and opportunities
+       
+        Starbursting
+        Pros: Encourages thorough exploration, Focuses on details
+        Cons: Can stall creative solutions, Might feel repetitive
+        Steps:
+        - Draw a six-pointed star and write the central idea in the middle
+        - Label each point with Who, What, Where, When, Why, and How
+        - Brainstorm questions for each category
+        - Answer the questions in subsequent sessions
+        
+        SWOT Analysis
+        Pros: Provides structured insights, Good for strategy development
+        Cons: Time-consuming, May not inspire creativity
+        Steps:
+        - Divide a chart into four quadrants: Strengths, Weaknesses, Opportunities, Threats
+        - Brainstorm and fill each section
+        - Analyze results for actionable strategies
+       
+        SCAMPER
+        Pros: Stimulates creative thinking, Builds on existing ideas
+        Cons: Requires familiarity with the original idea, Not suitable for all problems
+        Steps:
+        - Identify an existing product, idea, or problem
+        - Ask SCAMPER questions (e.g., 'What can we substitute?')
+        - Explore answers and refine promising ideas
+       
+        Role Storming
+        Pros: Encourages empathy, Unlocks fresh perspectives
+        Cons: May feel forced, Some roles might be hard to relate to
+        Steps:
+        - Assign roles (e.g., customer, competitor, innovator)
+        - Ask participants to brainstorm as if they were in that role
+        - Discuss insights and consolidate ideas
+       
+        Reverse Brainstorming
+        Pros: Identifies potential pitfalls, Stimulates innovative solutions
+        Cons: Can veer into negativity, Requires a shift back to solutions
+        Steps:
+        - Define the problem
+        - Ask, 'How could we cause this problem?'
+        - Reverse the negative ideas into solutions
+       
+        Round-Robin Brainstorming
+        Pros: Ensures participation, Prevents idea overshadowing
+        Cons: Time-intensive, Can limit spontaneity
+        Steps:
+        - Sit participants in a circle
+        - Take turns sharing one idea at a time
+        - Document ideas for later discussion
+      
+        Rapid Ideation
+        Pros: Promotes creativity under pressure, Prevents overthinking
+        Cons: May produce superficial ideas, Not ideal for complex problems
+        Steps:
+        - Set a timer (e.g., 5-10 minutes)
+        - Ask participants to write as many ideas as possible
+        - Share and analyze the generated ideas
+       
+        Brain-Netting
+        Pros: Ideal for remote teams, Allows asynchronous participation
+        Cons: May lack immediacy, Harder to foster collaboration
+        Steps:
+        - Use collaboration tools (e.g., Trello, Miro)
+        - Share the problem statement and instructions
+        - Collect and review ideas over a set period
+      
+        Affinity Diagramming
+        Pros: Organizes data effectively, Reveals patterns
+        Cons: Time-consuming, Requires facilitation
+        Steps:
+        - Write all ideas on sticky notes
+        - Group similar ideas into categories
+        - Label categories and prioritize ideas
+      
+        5 Whys Analysis
+        Pros: Simplifies complex problems, Great for root cause analysis
+        Cons: Can oversimplify, Limited to specific types of issues
+        Steps:
+        - State the problem
+        - Ask 'Why?' and record the answer
+        - Repeat up to five times or until reaching a root cause
+      
+        Storyboarding
+        Pros:Excellent for visual learners, Maps processes and experiences
+        Cons: Can require artistic skills, Time-intensive
+        Steps:
+        - Define the problem or process
+        - Sketch key stages or steps
+        - Discuss and refine the narrative
+      
+        Stepladder Technique
+        Pros: Prevents groupthink, Ensures equal input
+        Cons: Time-consuming, Harder to execute with large groups
+        Steps:
+        - Start with two members discussing the problem
+        - Gradually add one participant at a time to the discussion
+        - Conclude with all participants in the group
+      
+        Lateral Thinking
+        Pros: Encourages out-of-the-box ideas, Breaks conventional thinking
+        Cons: Can feel abstract, Requires skilled facilitation"
+        Steps:
+        - Challenge assumptions about the problem
+        - Explore alternative scenarios or solutions
+        - Evaluate and refine unconventional ideas
+        
         Keep your response encouraging but concise. Wait for their completion of each step before moving on."""),
         HumanMessage(content=f"We're starting a brainstorming session about '{topic}' with {members} participants. Our goal is: {goal}")
     ]
